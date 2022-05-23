@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+h3,p{
+    text-align: center;
+    font-weight: bold;
+}
+h3{
+    margin-top: 10px;
+}
+svg{
+    display: block;
+    fill: $heart-color;
+    margin: 20px auto;
+    align-items: center;
+}
+div{
+    @include info-components;
+}

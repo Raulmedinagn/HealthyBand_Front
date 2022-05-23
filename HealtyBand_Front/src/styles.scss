@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$heart-color: #bf3535;
+$steps-color: #f2de2c;
+
+@mixin info-components {
+    width: 250px;
+    height: 300px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: auto 10px;
+}

@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeartRateComponent } from './heart-rate/heart-rate.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { StepsComponent } from './steps/steps.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeartRateComponent,
+    StepsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
