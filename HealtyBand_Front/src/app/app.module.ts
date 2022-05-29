@@ -6,24 +6,23 @@ import { AppComponent } from './app.component';
 import { HeartRateComponent } from './components/heart-rate/heart-rate.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { StepsComponent } from './components/steps/steps.component';
-import { CaloriesComponent } from './components/calories/calories.component';
-import { FatBurnedComponent } from './components/fat-burned/fat-burned.component';
-import { MetersComponent } from './components/meters/meters.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { LineChart2Component } from './components/line-chart-2/line-chart-2.component';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { InfoComponent } from './components/info/info.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeartRateComponent,
-    StepsComponent,
-    CaloriesComponent,
-    FatBurnedComponent,
-    MetersComponent,
-    LineChartComponent
+
+    LineChartComponent,
+    LineChart2Component,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

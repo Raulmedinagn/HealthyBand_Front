@@ -30,20 +30,15 @@ export type ChartOptions = {
 };
 
 @Component({
-  selector: 'app-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss']
+  selector: 'app-line-chart-2',
+  templateUrl: './line-chart-2.component.html',
+  styleUrls: ['./line-chart-2.component.scss']
 })
-export class LineChartComponent implements OnInit {
-  @ViewChild("chartHtml")
-  chart!: ChartComponent;
-
-  steps: number[] = []
-  calories: number[] = []
+export class LineChart2Component implements OnInit {
   rate: number[] = []
   intensity: number[] = []
-
   fechas: string[] = []
+  steps: number[] = []
 
   todos: Activity[] = []
 
@@ -61,7 +56,7 @@ export class LineChartComponent implements OnInit {
   ngOnInit(): void {
     this.setWeekChart();
     var options = {
-      colors: ["#20b03a", "#bf3535"],
+      colors:["#4d84dc"],
       series: [],
       chart: {
         height: 350,
@@ -104,25 +99,21 @@ export class LineChartComponent implements OnInit {
       }
     };
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
+    var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
+    chart2.render();
 
     try {
-      chart.updateOptions({
+      chart2.updateOptions({
         xaxis: {
           categories: this.fechas
         }
       });
       this.getTodos();
       setTimeout(() => {
-        chart.updateSeries([
+        chart2.updateSeries([
           {
-            name: "Calorias Quemadas",
-            data: this.calories
-          },
-          {
-            name: "Pulsaciones",
-            data: this.rate
+            name: "Pasos",
+            data: this.steps
           },
         ])
       }, 1000);
@@ -171,9 +162,9 @@ export class LineChartComponent implements OnInit {
           return 0;
       });
       this.todos.forEach(element => {
-        this.steps.push(element.steps)
-        this.calories.push(element.Total_Calories)
         this.rate.push(element.Heart_rate_average)
+        this.intensity.push(element.Intensity)
+        this.steps.push(element.steps)
       })
     }, 500);
   }

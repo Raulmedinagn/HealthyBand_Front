@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { HeartRate } from '../interfaces/heartRate';
 import { Info } from '../interfaces/info';
 import { Activity } from '../interfaces/activity';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

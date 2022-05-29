@@ -1,13 +1,26 @@
 $heart-color: #bf3535;
-$steps-color: #f2de2c;
-$meters-color: #4d84dc;
+$steps-color: #4d84dc;
+$meters-color: #f2de2c;
 $calories-color: #20b03a;
 $fat-burned-color: #f27b2c;
 
-@mixin info-components {
-    width: 208px;
-    height: 300px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    margin: auto 1em;
+
+$bg-color:#041C32;
+$bg2-color:#04293A;
+$bg3-color:#064663;
+$title-color:#ECB365;
+
+body{
+    background-color: $bg-color;
+}
+span{
+    color: white;
+}
+.apexcharts-legend-text{
+    color: white !important;
+    fill: white !important;
+}
+.apexcharts-text, .apexcharts-yaxis-label{
+    color: white !important;
+    fill: white !important;
 }

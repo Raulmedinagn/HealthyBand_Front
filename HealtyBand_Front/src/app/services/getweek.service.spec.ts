@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LinechartService } from './linechart.service';
+import { LinechartService } from './getweek.service';
 
 describe('LinechartService', () => {
   let service: LinechartService;
