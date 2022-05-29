@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HeartRate } from '../interfaces/heartRate';
 import { Info } from '../interfaces/info';
 import { Activity } from '../interfaces/activity';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class BandApiService {
     return this.http.get(path);
   }
 
-  async getActivity(year:string, month:string, day:string) {
+  getActivity(year: string, month: string, day: string) {
     const path = `${this.api}/band/activity/${year}/${month}/${day}.json`;
     return this.http.get<Activity>(path);
   }
