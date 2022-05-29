@@ -1,10 +1,13 @@
 $heart-color: #bf3535;
 $steps-color: #f2de2c;
+$meters-color: #4d84dc;
+$calories-color: #20b03a;
+$fat-burned-color: #f27b2c;
 
 @mixin info-components {
-    width: 250px;
+    width: 208px;
     height: 300px;
     border: 1px solid grey;
     border-radius: 10px;
-    margin: auto 10px;
+    margin: auto 1em;
 }

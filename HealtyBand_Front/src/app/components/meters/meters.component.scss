@@ -1,14 +1,16 @@
-@import "../../styles.scss";
-h3,p{
+@import "../../../styles.scss";
+h4,p{
     text-align: center;
     font-weight: bold;
 }
-h3{
+h4{
     margin-top: 10px;
+    margin-bottom: 5px;
+    height: 60px;
 }
 svg{
     display: block;
-    fill: $heart-color;
+    fill: $meters-color;
     margin: 20px auto;
     align-items: center;
 }

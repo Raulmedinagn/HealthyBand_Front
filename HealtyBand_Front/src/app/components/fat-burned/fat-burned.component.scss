@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+h4,p{
+    text-align: center;
+    font-weight: bold;
+}
+h4{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 60px;
+}
+svg{
+    display: block;
+    fill: $fat-burned-color;
+    margin: 20px auto;
+    align-items: center;
+}
+div{
+    @include info-components;
+}

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
-import { BandApiService } from '../services/band-api.service';
-import { Info } from '../interfaces/info';
+import { BandApiService } from '../../services/band-api.service';
+import { Info } from '../../interfaces/info';
 
 @Component({
-  selector: 'app-steps',
-  templateUrl: './steps.component.html',
-  styleUrls: ['./steps.component.scss']
+  selector: 'app-calories',
+  templateUrl: './calories.component.html',
+  styleUrls: ['./calories.component.scss']
 })
-export class StepsComponent implements OnInit {
+export class CaloriesComponent implements OnInit {
 
   obj: Info = {
     Calories: 0,
@@ -23,7 +23,7 @@ export class StepsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getApi();
-    interval(1000).subscribe(() => this.getApi())
+    //interval(1000).subscribe(() => this.getApi())
   }
 
   getApi() {

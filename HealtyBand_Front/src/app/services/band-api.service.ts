@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HeartRate } from '../interfaces/heartRate';
 import { Info } from '../interfaces/info';
+import { Activity } from '../interfaces/activity';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,14 @@ export class BandApiService {
     private http: HttpClient
   ) { }
 
-  getAllTasks() {
+  getAll() {
     const path = `${this.api}/band/.json`;
     return this.http.get(path);
+  }
+
+  async getActivity(year:string, month:string, day:string) {
+    const path = `${this.api}/band/activity/${year}/${month}/${day}.json`;
+    return this.http.get<Activity>(path);
   }
 
   getHeartRate() {
@@ -28,18 +34,4 @@ export class BandApiService {
     return this.http.get<Info>(path);
   }
 
-  createTask(task: Task) {
-    const path = `${this.api}/band`;
-    return this.http.post(path, task);
-  }
-
-  updateTask(task: Task) {
-    const path = `${this.api}/band/${task}`;
-    return this.http.put(path, task);
-  }
-
-  deleteTask(id: string) {
-    const path = `${this.api}/band/${id}`;
-    return this.http.delete(path);
-  }
 }

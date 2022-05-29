@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeartRateComponent } from './heart-rate/heart-rate.component';
+import { HeartRateComponent } from './components/heart-rate/heart-rate.component';
 
 const routes: Routes = [
   { path: 'rate', component: HeartRateComponent },
