@@ -120,6 +120,9 @@ export class InfoComponent implements OnInit {
         if (resp.Fat_Burned == undefined || resp.Fat_Burned == null || resp.Fat_Burned == NaN) {
           resp.Fat_Burned = 0
         }
+        if(resp.Calories<0){
+          resp.Calories += 256
+        }
         this.obj = resp
         this.metros.push(resp.Meters)
         this.pasos.push(resp.Steps)
