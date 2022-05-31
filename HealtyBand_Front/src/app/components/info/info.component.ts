@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BandApiService } from '../../services/band-api.service';
 import { Info } from '../../interfaces/info';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -9,17 +10,11 @@ import { Info } from '../../interfaces/info';
 })
 export class InfoComponent implements OnInit {
 
-  datos: number[] = []
+
   calorias: number[] = []
   grasas: number[] = []
   metros: number[] = []
   pasos: number[] = []
-  obj: Info = {
-    Calories: 0,
-    Fat_Burned: 0,
-    Meters: 0,
-    Steps: 0
-  }
 
   constructor(private bandApi: BandApiService) { }
 
@@ -62,22 +57,18 @@ export class InfoComponent implements OnInit {
         }
       },
       xaxis: {
-        categories: ['Pasos', 'Metros', 'Calorias', 'Grasas Quemadas'
-        ],
+        categories: ['Pasos', 'Metros', 'Calorias', 'Grasas Quemadas'],
       },
     };
 
     var chart = new ApexCharts(document.querySelector("#chartInfo"), options);
     chart.render();
 
+
     try {
-      chart.updateOptions({
-        xaxis: {
-          categories: this.datos
-        }
-      });
       this.getApi();
       setTimeout(() => {
+
         chart.updateSeries([
           {
             name: "Pasos",
@@ -97,12 +88,20 @@ export class InfoComponent implements OnInit {
           }
         ])
       }, 1000);
-
     }
     catch (e) {
       alert(e)
     }
+    setInterval(() => {
+      var div = document.getElementById('chartInfo')!;
+      while (div.firstChild) {
+        div.removeChild(div.firstChild);
+      }
+      this.ngOnInit()
+    }, 60000)
   }
+
+
 
   getApi() {
     this.bandApi.getInfo()
@@ -117,22 +116,20 @@ export class InfoComponent implements OnInit {
         if (resp.Calories == undefined || resp.Calories == null || resp.Calories == NaN) {
           resp.Calories = 0
         }
-        if (resp.Fat_Burned == undefined || resp.Fat_Burned == null || resp.Fat_Burned == NaN) {
-          resp.Fat_Burned = 0
+        if (resp.Fat_burned == undefined || resp.Fat_burned == null || resp.Fat_burned == NaN) {
+          resp.Fat_burned = 0
         }
-        if(resp.Calories<0){
+        if (resp.Calories < 0) {
           resp.Calories += 256
         }
-        this.obj = resp
+        this.calorias = []
+        this.grasas = []
+        this.metros = []
+        this.pasos = []
         this.metros.push(resp.Meters)
         this.pasos.push(resp.Steps)
         this.calorias.push(resp.Calories)
-        this.grasas.push(resp.Fat_Burned)
-        this.datos.push(resp.Steps)
-        this.datos.push(resp.Meters)
-        this.datos.push(resp.Calories)
-        this.datos.push(resp.Fat_Burned)
-        console.log(this.obj)
+        this.grasas.push(resp.Fat_burned)
       });
   }
 }

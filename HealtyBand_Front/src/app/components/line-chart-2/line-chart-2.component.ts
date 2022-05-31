@@ -35,8 +35,7 @@ export type ChartOptions = {
   styleUrls: ['./line-chart-2.component.scss']
 })
 export class LineChart2Component implements OnInit {
-  rate: number[] = []
-  intensity: number[] = []
+  meters: number[] = []
   fechas: string[] = []
   steps: number[] = []
 
@@ -46,8 +45,10 @@ export class LineChart2Component implements OnInit {
     Date: '',
     Heart_rate_average: 0,
     Intensity: 0,
-    steps: 0,
-    Total_Calories: 0
+    Total_Steps: 0,
+    Total_Calories: 0,
+    Total_Fatburned: 0,
+    Total_Meters: 0
   }
 
   constructor(private bandApi: BandApiService, private lineChartService: LinechartService) { }
@@ -56,7 +57,7 @@ export class LineChart2Component implements OnInit {
   ngOnInit(): void {
     this.setWeekChart();
     var options = {
-      colors:["#4d84dc"],
+      colors: ["#4d84dc"],
       series: [],
       chart: {
         height: 350,
@@ -115,6 +116,10 @@ export class LineChart2Component implements OnInit {
             name: "Pasos",
             data: this.steps
           },
+          {
+            name: "Metros",
+            data: this.meters
+          },
         ])
       }, 1000);
 
@@ -142,7 +147,12 @@ export class LineChart2Component implements OnInit {
     let week = this.lineChartService.getWeek()
 
     for (const day of week) {
-      this.bandApi.getActivity(day.getFullYear().toString(), `0${(day.getMonth() + 1).toString()}`, day.getDate().toString())
+      if ((day.getMonth() + 1) < 10) {
+        var mes = `0${(day.getMonth() + 1).toString()}`
+      }else{
+        var mes = (day.getMonth() + 1).toString()
+      }
+      this.bandApi.getActivity(day.getFullYear().toString(), mes, day.getDate().toString())
         .subscribe(resp => {
           this.todos.push(resp);
         });
@@ -162,9 +172,8 @@ export class LineChart2Component implements OnInit {
           return 0;
       });
       this.todos.forEach(element => {
-        this.rate.push(element.Heart_rate_average)
-        this.intensity.push(element.Intensity)
-        this.steps.push(element.steps)
+        this.meters.push(element.Total_Meters)
+        this.steps.push(element.Total_Steps)
       })
     }, 500);
   }

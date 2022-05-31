@@ -38,10 +38,9 @@ export class LineChartComponent implements OnInit {
   @ViewChild("chartHtml")
   chart!: ChartComponent;
 
-  steps: number[] = []
+  fatburned: number[] = []
   calories: number[] = []
   rate: number[] = []
-  intensity: number[] = []
 
   fechas: string[] = []
 
@@ -51,8 +50,10 @@ export class LineChartComponent implements OnInit {
     Date: '',
     Heart_rate_average: 0,
     Intensity: 0,
-    steps: 0,
-    Total_Calories: 0
+    Total_Steps: 0,
+    Total_Calories: 0,
+    Total_Fatburned: 0,
+    Total_Meters: 0
   }
 
   constructor(private bandApi: BandApiService, private lineChartService: LinechartService) { }
@@ -117,12 +118,16 @@ export class LineChartComponent implements OnInit {
       setTimeout(() => {
         chart.updateSeries([
           {
-            name: "Calorias Quemadas",
+            name: "Calorias",
             data: this.calories
           },
           {
             name: "Pulsaciones",
             data: this.rate
+          },
+          {
+            name: "Grasas Quemadas",
+            data: this.fatburned
           },
         ])
       }, 1000);
@@ -151,7 +156,12 @@ export class LineChartComponent implements OnInit {
     let week = this.lineChartService.getWeek()
 
     for (const day of week) {
-      this.bandApi.getActivity(day.getFullYear().toString(), `0${(day.getMonth() + 1).toString()}`, day.getDate().toString())
+      if ((day.getMonth() + 1) < 10) {
+        var mes = `0${(day.getMonth() + 1).toString()}`
+      }else{
+        var mes = (day.getMonth() + 1).toString()
+      }
+      this.bandApi.getActivity(day.getFullYear().toString(), mes, day.getDate().toString())
         .subscribe(resp => {
           this.todos.push(resp);
         });
@@ -171,8 +181,8 @@ export class LineChartComponent implements OnInit {
           return 0;
       });
       this.todos.forEach(element => {
-        this.steps.push(element.steps)
         this.calories.push(element.Total_Calories)
+        this.fatburned.push(element.Total_Fatburned)
         this.rate.push(element.Heart_rate_average)
       })
     }, 500);

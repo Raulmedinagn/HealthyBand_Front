@@ -1,0 +1,17 @@
+<div id="container">
+    <p class="m-0">Band Status: <span *ngIf="connected">Conected</span><span *ngIf="!connected">Dissconected</span></p>
+    <div class="bateria">
+        <div class="col-md-3 col-sm-6">
+            <div id="div_color" class="progress green">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">{{battery.Battery}}%</div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -13,6 +13,7 @@ import { LineChart2Component } from './components/line-chart-2/line-chart-2.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { InfoComponent } from './components/info/info.component';
+import { BandinfoComponent } from './components/bandinfo/bandinfo.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { InfoComponent } from './components/info/info.component';
     LineChartComponent,
     LineChart2Component,
     InfoComponent,
+    BandinfoComponent,
   ],
   imports: [
     BrowserModule,

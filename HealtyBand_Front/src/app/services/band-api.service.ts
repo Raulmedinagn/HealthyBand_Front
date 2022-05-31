@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { HeartRate } from '../interfaces/heartRate';
 import { Info } from '../interfaces/info';
 import { Activity } from '../interfaces/activity';
+import { Bandinfo } from '../interfaces/bandinfo';
+import { Battery } from '../interfaces/battery';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +34,18 @@ export class BandApiService {
   getInfo() {
     const path = `${this.api}/band/info.json`;
     return this.http.get<Info>(path);
+  }
+  getBandInfo() {
+    const path = `${this.api}/band/bandinfo.json`;
+    return this.http.get<Bandinfo>(path);
+  }
+  getBatery() {
+    const path = `${this.api}/band/battery.json`;
+    return this.http.get<Battery>(path);
+  }
+  getStatus() {
+    const path = `${this.api}/band/Connected.json`;
+    return this.http.get(path);
   }
 
 }

@@ -2,7 +2,9 @@ export interface Activity {
   Date: string,
   Heart_rate_average: number,
   Intensity: number,
-  steps: number,
-  Total_Calories:number
+  Total_Steps: number,
+  Total_Calories: number,
+  Total_Fatburned: number,
+  Total_Meters: number,
 
 }

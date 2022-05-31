@@ -13,14 +13,15 @@ $title-color:#ECB365;
 body{
     background-color: $bg-color;
 }
-span{
+p{
     color: white;
 }
+
+
 .apexcharts-legend-text{
-    color: white !important;
     fill: white !important;
+    color: white !important;
 }
 .apexcharts-text, .apexcharts-yaxis-label{
-    color: white !important;
     fill: white !important;
 }
