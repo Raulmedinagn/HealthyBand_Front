@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as ApexCharts from 'apexcharts';
 import { BandApiService } from '../../services/band-api.service';
-import { Info } from '../../interfaces/info';
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -15,10 +14,14 @@ export class InfoComponent implements OnInit {
   grasas: number[] = []
   metros: number[] = []
   pasos: number[] = []
+  ancho:number = 0;
+  alto:number = 0;
 
   constructor(private bandApi: BandApiService) { }
 
   ngOnInit(): void {
+
+    
     var options = {
       colors: ["#4d84dc", "#f2de2c", "#20b03a", "#f27b2c"],
       series: [{
@@ -26,8 +29,8 @@ export class InfoComponent implements OnInit {
       }],
       chart: {
         type: 'bar',
-        height: 300,
-        with: 500,
+        height: 311,
+        width: '100%',
       },
       plotOptions: {
         bar: {
@@ -58,7 +61,7 @@ export class InfoComponent implements OnInit {
       },
       xaxis: {
         categories: ['Pasos', 'Metros', 'Calorias', 'Grasas Quemadas'],
-      },
+      }
     };
 
     var chart = new ApexCharts(document.querySelector("#chartInfo"), options);
@@ -98,7 +101,7 @@ export class InfoComponent implements OnInit {
         div.removeChild(div.firstChild);
       }
       this.ngOnInit()
-    }, 60000)
+    }, 300000)
   }
 
 

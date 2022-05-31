@@ -1,9 +1,31 @@
 @import "../../../styles.scss";
-#chartInfo{
+
+#chartInfo {
     border-radius: 10px;
     padding: 25px;
     min-width: 935px;
     min-height: 350px !important;
     max-height: 350px !important;
     background-color: $bg2-color;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+    #chartInfo {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+    #chartInfo {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #chartInfo {
+        max-width: 100%;
+        min-width: 100%;
+    }
 }

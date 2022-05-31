@@ -1,4 +1,6 @@
-#container{
+@import "../../../styles.scss";
+
+#container {
     display: flex;
     min-height: 100%;
     min-width: 100%;
@@ -6,12 +8,36 @@
     align-items: center;
     flex-direction: row;
     float: right;
+
+    :hover #tooltip {
+        visibility: visible;
+    }
 }
-.bateria{
+
+@media screen and (max-width: 600px) {
+
+    #container{
+        min-height: 0%;
+        width: 100% !important;
+        height: auto !important;
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        #bateria{
+            margin-right: 0;
+        }
+    }
+    .progress-bar{
+        display: none;
+    }
+}
+
+.bateria {
     width: fit-content;
     margin-left: 10px;
     margin-right: 20px;
 }
+
 .progress {
     width: 60px;
     height: 60px;
@@ -197,5 +223,56 @@
     100% {
         -webkit-transform: rotate(126deg);
         transform: rotate(126deg);
+    }
+}
+
+/////////////////////////TOOLTIP/////////////////////////
+
+
+#mensaje {
+    position: relative;
+
+}
+
+#tooltip {
+    width: 200px;
+    margin: 20px;
+    visibility: hidden;
+}
+
+.bubble {
+    box-sizing: border-box;
+
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid $bg3-color;
+    background-color: $bg2-color;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: -15%;
+
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+
+    &--arrow {
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            border: 10px solid transparent;
+            border-bottom-color: $bg2-color;
+            left: 50%;
+            margin-left: -10px;
+        }
+
+        &:before {
+            border-width: 11px;
+            border-bottom-color: $bg3-color;
+            margin-left: -11px;
+        }
+
     }
 }

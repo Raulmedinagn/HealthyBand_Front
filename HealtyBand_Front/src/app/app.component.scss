@@ -11,7 +11,8 @@ h1 {
     color: $title-color;
     grid-column: 2;
 }
-app-bandinfo{
+
+app-bandinfo {
     grid-column: 3;
     margin-left: auto;
 }
@@ -20,7 +21,13 @@ app-bandinfo{
 header {
     min-height: 90px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+footer{
+    width: fit-content !important;
+    margin: auto !important;
+    text-align: center;
 }
 
 #box-1 {
@@ -29,4 +36,110 @@ header {
     :last-child {
         margin-left: auto;
     }
+}
+
+#box-3 {
+    width: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    #container {
+        width: auto;
+        padding: 16px;
+    }
+
+    #box-1 {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    app-info {
+        width: 65%;
+        float: right;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    header {
+        margin-bottom: 0% !important;
+        width: 100%;
+        min-height: fit-content;
+        display: flex;
+
+        h1 {
+            font-size: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #container {
+        width: auto;
+        padding: 16px;
+    }
+
+    #box-1 {
+        margin: auto;
+        display: inline;
+    }
+
+    #box-2 {
+        width: 100%;
+        display: inline-block;
+    }
+
+    app-info {
+        width: 100% !important;
+    }
+
+    header {
+        margin-bottom: 0% !important;
+        width: 100%;
+        min-height: fit-content;
+        display: flex;
+
+        h1 {
+            font-size: 60px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    #container {
+        width: auto;
+        padding: 16px;
+    }
+
+    #box-1 {
+        display: inline;
+    }
+
+    #box-2 {
+        width: 100%;
+        display: inline-block;
+    }
+
+    header {
+        margin-bottom: 0% !important;
+
+        width: 100%;
+        min-height: fit-content;
+        display: block;
+
+        h1 {
+            font-size: 60px;
+            padding-bottom: 0px !important;
+        }
+    }
+
+    app-bandinfo {
+        display: flex;
+        margin: auto;
+    }
+
+    app-info {
+        width: 100% !important;
+    }
+
 }

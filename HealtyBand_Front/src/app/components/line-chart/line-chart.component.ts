@@ -3,31 +3,8 @@ import { Activity } from 'src/app/interfaces/activity';
 import { BandApiService } from 'src/app/services/band-api.service';
 import { LinechartService } from 'src/app/services/getweek.service';
 import * as ApexCharts from 'apexcharts';
-import { elementAt, Observable, forkJoin } from 'rxjs';
-
-import {
-  ChartComponent,
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexDataLabels,
-  ApexTitleSubtitle,
-  ApexStroke,
-  ApexGrid
-} from "ng-apexcharts";
 
 
-
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
-  grid: ApexGrid;
-  stroke: ApexStroke;
-  title: ApexTitleSubtitle;
-};
 
 @Component({
   selector: 'app-line-chart',
@@ -35,8 +12,6 @@ export type ChartOptions = {
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  @ViewChild("chartHtml")
-  chart!: ChartComponent;
 
   fatburned: number[] = []
   calories: number[] = []
@@ -56,17 +31,20 @@ export class LineChartComponent implements OnInit {
     Total_Meters: 0
   }
 
+
   constructor(private bandApi: BandApiService, private lineChartService: LinechartService) { }
 
 
   ngOnInit(): void {
     this.setWeekChart();
+
     var options = {
-      colors: ["#20b03a", "#bf3535"],
+      colors: ["#20b03a", "#bf3535",'#f27b2c'],
       series: [],
       chart: {
-        height: 350,
         type: "line",
+        height: 311,
+        width: '100%',
         zoom: {
           enabled: false
         }
@@ -89,7 +67,7 @@ export class LineChartComponent implements OnInit {
         offsetX: 0,
         offsetY: 0,
         style: {
-          color: undefined,
+          color: "white",
           fontSize: '14px',
           fontFamily: undefined
         }
@@ -102,7 +80,7 @@ export class LineChartComponent implements OnInit {
       },
       xaxis: {
         categories: []
-      }
+      },
     };
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
@@ -158,7 +136,7 @@ export class LineChartComponent implements OnInit {
     for (const day of week) {
       if ((day.getMonth() + 1) < 10) {
         var mes = `0${(day.getMonth() + 1).toString()}`
-      }else{
+      } else {
         var mes = (day.getMonth() + 1).toString()
       }
       this.bandApi.getActivity(day.getFullYear().toString(), mes, day.getDate().toString())

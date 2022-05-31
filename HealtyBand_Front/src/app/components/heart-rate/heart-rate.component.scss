@@ -21,3 +21,75 @@ div{
     height: 350px;
     width: 250px;
 }
+@media screen and (max-width: 768px) {
+    #rate{
+        height: auto;
+        width: auto;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-rows: 1;
+        align-items: center;
+        h4{
+            grid-column: 3;
+            grid-row: 1;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            font-size: 30px;
+            height: auto;
+        }
+        svg{
+            width: 100px !important;
+            height: 100px !important;
+            margin: 0%;
+        }
+        svg-icon{
+            height: min-content;
+            grid-column: 1;
+            grid-row: 1;
+            margin: auto;
+        }
+        p{
+            grid-column: 2;
+            grid-row: 1;
+            margin: auto;
+            font-size: 30px;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #rate{
+        height: auto;
+        width: auto;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-rows: 1;
+        align-items: center;
+        h4{
+            grid-column: 3;
+            grid-row: 1;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            font-size: 30px;
+            height: auto;
+        }
+        svg{
+            width: 100px !important;
+            height: 100px !important;
+            margin: 0%;
+        }
+        svg-icon{
+            height: min-content;
+            grid-column: 1;
+            grid-row: 1;
+            margin: auto;
+        }
+        p{
+            grid-column: 2;
+            grid-row: 1;
+            margin: auto;
+            font-size: 30px;
+        }
+    }
+}

@@ -3,31 +3,7 @@ import { Activity } from 'src/app/interfaces/activity';
 import { BandApiService } from 'src/app/services/band-api.service';
 import { LinechartService } from 'src/app/services/getweek.service';
 import * as ApexCharts from 'apexcharts';
-import { elementAt, Observable, forkJoin } from 'rxjs';
 
-import {
-  ChartComponent,
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexDataLabels,
-  ApexTitleSubtitle,
-  ApexStroke,
-  ApexGrid
-} from "ng-apexcharts";
-
-
-
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
-  grid: ApexGrid;
-  stroke: ApexStroke;
-  title: ApexTitleSubtitle;
-};
 
 @Component({
   selector: 'app-line-chart-2',
@@ -57,11 +33,12 @@ export class LineChart2Component implements OnInit {
   ngOnInit(): void {
     this.setWeekChart();
     var options = {
-      colors: ["#4d84dc"],
+      colors: ["#4d84dc",'#f2de2c'],
       series: [],
       chart: {
-        height: 350,
         type: "line",
+        height: 311,
+        width: '100%',
         zoom: {
           enabled: false
         }
@@ -76,7 +53,6 @@ export class LineChart2Component implements OnInit {
         text: "",
         align: "left"
       },
-
       noData: {
         text: "Cargando...",
         align: 'center',
@@ -84,7 +60,7 @@ export class LineChart2Component implements OnInit {
         offsetX: 0,
         offsetY: 0,
         style: {
-          color: undefined,
+          color: 'White',
           fontSize: '14px',
           fontFamily: undefined
         }

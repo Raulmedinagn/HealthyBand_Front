@@ -1,5 +1,14 @@
 <div id="container">
-    <p class="m-0">Band Status: <span *ngIf="connected">Conected</span><span *ngIf="!connected">Dissconected</span></p>
+    <div id="mensaje">
+        <p id="band_status" class="m-0">Band Status: <span *ngIf="connected">Conected</span><span *ngIf="!connected">Dissconected</span>
+        </p>
+        <div id="tooltip" class="bubble bubble--arrow shadow rounded">
+            <p>Versión de Hardware: {{info.Hardware_revision}}</p>
+            <p>Serial: {{info.Serial}}</p>
+            <p>Versión de Software: {{info.Soft_revision}}</p>
+        </div>
+    </div>
+
     <div class="bateria">
         <div class="col-md-3 col-sm-6">
             <div id="div_color" class="progress green">
@@ -13,5 +22,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>

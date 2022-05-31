@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { Bandinfo } from 'src/app/interfaces/bandinfo';
 import { Battery } from 'src/app/interfaces/battery';
 import { BandApiService } from '../../services/band-api.service';
 
@@ -16,8 +17,14 @@ export class BandinfoComponent implements OnInit {
   battery: Battery = {
     Battery: 0
   };
+  info:Bandinfo = {
+    Hardware_revision: '',
+    Serial: '',
+    Soft_revision: ''
+  }
 
   ngOnInit(): void {
+    this.getInfo();
     this.getStatus();
     this.getBattery();
     interval(60000).subscribe(() => {
@@ -32,6 +39,12 @@ export class BandinfoComponent implements OnInit {
           this.connected = resp
         });
     })
+  }
+  getInfo() {
+      this.bandApi.getBandInfo()
+        .subscribe(resp => {
+          this.info = resp
+        });
   }
   getBattery() {
     let div = document.getElementById('div_color')!
@@ -69,4 +82,5 @@ export class BandinfoComponent implements OnInit {
       });
 
   }
+
 }
