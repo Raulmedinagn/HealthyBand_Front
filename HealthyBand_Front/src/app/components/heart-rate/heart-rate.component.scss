@@ -1,0 +1,103 @@
+@import "../../../styles.scss";
+h4,p{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+h4{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 60px;
+}
+svg{
+    display: block;
+    fill: $heart-color;
+    margin: 20px auto;
+    align-items: center;
+}
+div{
+    border: 1px solid $bg2-color;
+    border-radius: 10px;
+    height: 350px;
+    width: 250px;
+}
+@media screen and (max-width: 767px) {
+    #rate{
+        height: auto;
+        width: auto;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-rows: 1;
+        align-items: center;
+        h4{
+            grid-column: 3;
+            grid-row: 1;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            font-size: 30px;
+            height: auto;
+        }
+        svg{
+            width: 100px !important;
+            height: 100px !important;
+            margin: 0%;
+        }
+        svg-icon{
+            height: min-content;
+            grid-column: 1;
+            grid-row: 1;
+            margin: auto;
+        }
+        p{
+            grid-column: 2;
+            grid-row: 1;
+            margin: auto;
+            font-size: 30px;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #rate{
+        height: auto;
+        width: auto;
+        display: grid;
+        grid-template-columns: 3;
+        grid-template-rows: 1;
+        align-items: center;
+        h4{
+            grid-column: 3;
+            grid-row: 1;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            font-size: 30px;
+            height: auto;
+        }
+        svg{
+            width: 100px !important;
+            height: 100px !important;
+            margin: 0%;
+        }
+        svg-icon{
+            height: min-content;
+            grid-column: 1;
+            grid-row: 1;
+            margin: auto;
+        }
+        p{
+            grid-column: 2;
+            grid-row: 1;
+            margin: auto;
+            font-size: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+        h4,p{
+            font-size: 25px !important;
+        }
+
+}
+

@@ -1,0 +1,34 @@
+$heart-color: #bf3535;
+$steps-color: #4d84dc;
+$meters-color: #f2de2c;
+$calories-color: #20b03a;
+$fat-burned-color: #f27b2c;
+
+
+$bg-color: #041C32;
+$bg2-color: #04293A;
+$bg3-color: #064663;
+$title-color: #ECB365;
+
+html,body {
+    background-color: $bg-color;
+    width: fill-available;
+    height: fill-available;
+    overflow-x: hidden;
+}
+
+p {
+    color: white;
+}
+
+
+.apexcharts-legend-text {
+    fill: white !important;
+    color: white !important;
+}
+
+.apexcharts-text,
+.apexcharts-yaxis-label {
+    fill: white !important;
+}
+
