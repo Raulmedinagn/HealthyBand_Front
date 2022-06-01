@@ -39,7 +39,7 @@ export class LineChartComponent implements OnInit {
     this.setWeekChart();
 
     var options = {
-      colors: ["#20b03a", "#bf3535",'#f27b2c'],
+      colors: ["#1e9d70", "#bf3535",'#ffc060'],
       series: [],
       chart: {
         type: "line",

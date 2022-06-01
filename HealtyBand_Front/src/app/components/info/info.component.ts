@@ -14,16 +14,17 @@ export class InfoComponent implements OnInit {
   grasas: number[] = []
   metros: number[] = []
   pasos: number[] = []
-  ancho:number = 0;
-  alto:number = 0;
+  ancho: number = 0;
+  alto: number = 0;
+
 
   constructor(private bandApi: BandApiService) { }
 
   ngOnInit(): void {
 
-    
+
     var options = {
-      colors: ["#4d84dc", "#f2de2c", "#20b03a", "#f27b2c"],
+      colors: ["#007dca", "#e3256e", "#1e9d70", "#ffc060"],
       series: [{
         data: []
       }],
@@ -36,6 +37,7 @@ export class InfoComponent implements OnInit {
         bar: {
           borderRadius: 4,
           horizontal: true,
+          barHeight: '100%',
         }
       },
       dataLabels: {
@@ -60,7 +62,19 @@ export class InfoComponent implements OnInit {
         }
       },
       xaxis: {
-        categories: ['Pasos', 'Metros', 'Calorias', 'Grasas Quemadas'],
+        categories: ['Información'],
+      }, yaxis: {
+        floating: false,
+        axisTicks: {
+          show: true
+        },
+        axisBorder: {
+          show: false
+        },
+        labels: {
+          show: false
+        },
+
       }
     };
 

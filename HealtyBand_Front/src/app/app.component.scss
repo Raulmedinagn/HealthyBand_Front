@@ -4,6 +4,12 @@
     width: 1200px;
     margin: auto;
 }
+img{
+    max-height: 60px;
+    min-height: 60px;
+    margin: auto 20px;
+    grid-column: 1;
+}
 
 h1 {
     margin: auto;
@@ -60,6 +66,9 @@ footer{
 }
 
 @media screen and (max-width: 930px) {
+    img{
+        display: none;
+    }
     header {
         margin-bottom: 0% !important;
         width: 100%;
@@ -68,11 +77,19 @@ footer{
 
         h1 {
             font-size: 60px;
+            text-align: left;
+            margin: 0;
+        }
+        app-bandinfo{
+            float: right;
         }
     }
 }
 
 @media screen and (max-width: 767px) {
+    img{
+        display: none;
+    }
     #container {
         width: auto;
         padding: 16px;
@@ -125,17 +142,21 @@ footer{
 
         width: 100%;
         min-height: fit-content;
-        display: block;
+        display: flow-root;
 
         h1 {
             font-size: 60px;
             padding-bottom: 0px !important;
+            text-align: center;
+
         }
+
     }
 
     app-bandinfo {
-        display: flex;
         margin: auto;
+        display: flex;
+        float: none !important;
     }
 
     app-info {

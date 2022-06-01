@@ -33,7 +33,7 @@ export class LineChart2Component implements OnInit {
   ngOnInit(): void {
     this.setWeekChart();
     var options = {
-      colors: ["#4d84dc",'#f2de2c'],
+      colors: ["#007dca",'#e3256e'],
       series: [],
       chart: {
         type: "line",

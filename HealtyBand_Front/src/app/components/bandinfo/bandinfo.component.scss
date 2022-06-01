@@ -23,8 +23,8 @@
         display: flex;
         padding: 10px;
         justify-content: center;
-        #bateria{
-            margin-right: 0;
+        .bateria{
+            margin-right: 0px !important;
         }
     }
     .progress-bar{
@@ -131,11 +131,11 @@
 }
 
 .progress.yellow .progress-bar {
-    border-color: #fdba04;
+    border-color: #ffc060;
 }
 
 .progress.yellow .progress-value {
-    color: #fdba04;
+    color: #ffc060;
 }
 
 .progress.yellow .progress-left .progress-bar {
@@ -155,11 +155,11 @@
 }
 
 .progress.green .progress-bar {
-    border-color: #1abc9c;
+    border-color: #1e9d70;
 }
 
 .progress.green .progress-value {
-    color: #1abc9c;
+    color: #1e9d70;
 }
 
 .progress.green .progress-left .progress-bar {
