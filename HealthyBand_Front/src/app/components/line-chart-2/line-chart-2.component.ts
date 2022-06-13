@@ -54,7 +54,7 @@ export class LineChart2Component implements OnInit {
         align: "left"
       },
       noData: {
-        text: "Cargando Registros de Pasos y Metros...",
+        text: "Cargando Registros...",
         align: 'center',
         verticalAlign: 'middle',
         offsetX: 0,
