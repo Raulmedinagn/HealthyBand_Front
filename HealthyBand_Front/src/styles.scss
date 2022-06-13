@@ -1,8 +1,8 @@
 $heart-color: #bf3535;
-$steps-color: #4d84dc;
-$meters-color: #f2de2c;
-$calories-color: #20b03a;
-$fat-burned-color: #f27b2c;
+$steps-color: #007dca;
+$meters-color: #e3256e;
+$calories-color: #1e9d70;
+$fat-burned-color: #ffc060;
 
 
 $bg-color: #041C32;
@@ -19,6 +19,9 @@ html,body {
 }
 *{
     font-family: 'Oxygen', sans-serif !important;
+}
+i{
+    font-family: "Font Awesome 6 Free" !important;
 }
 
 p {
