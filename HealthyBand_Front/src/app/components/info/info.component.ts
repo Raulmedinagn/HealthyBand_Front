@@ -44,7 +44,7 @@ export class InfoComponent implements OnInit {
         enabled: false,
       },
       noData: {
-        text: "Cargando...",
+        text: "Cargando Información en Tiempo Real...",
         align: 'center',
         verticalAlign: 'middle',
         offsetX: 0,

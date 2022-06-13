@@ -61,7 +61,7 @@ export class LineChartComponent implements OnInit {
       },
 
       noData: {
-        text: "Cargando...",
+        text: "Cargando Registros de Calorias, Pulsaciones y Grasas Quemadas...",
         align: 'center',
         verticalAlign: 'middle',
         offsetX: 0,
